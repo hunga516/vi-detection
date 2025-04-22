@@ -1,4 +1,6 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
+CORS(app)
 
 app = Flask(__name__)
 
@@ -12,3 +14,6 @@ def get_my_ip():
         return(request.environ['REMOTE_ADDR'])
     else:
         return(request.environ['HTTP_X_FORWARDED_FOR'])
+
+if __name__ == "__main__":
+    app.run(debug=True)
