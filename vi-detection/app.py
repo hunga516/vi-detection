@@ -9,7 +9,6 @@ def index():
 @app.route("/get_my_ip", methods=["GET"])
 def get_my_ip():
     if request.environ.get('HTTP_X_FORWARDED_FOR') is None:
-        print(request.environ['REMOTE_ADDR'])
+        return(request.environ['REMOTE_ADDR'])
     else:
-        print(request.environ['HTTP_X_FORWARDED_FOR'])
-    return jsonify(success=True)
+        return(request.environ['HTTP_X_FORWARDED_FOR'])
